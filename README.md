@@ -1,9 +1,9 @@
 # README Generator
 
 ## Table of Contents
-- Description
-- Usage
-- Screenshot of Code
+- [Description](#description)
+- [Usage](#usage)
+- [Video Demonstration](#video-demonstration)
 
 
 ## Description
@@ -17,3 +17,4 @@ Once the you provide your answers, the application generates a README file in ma
 
 
 ## Video Demonstration
+link

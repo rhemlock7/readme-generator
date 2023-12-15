@@ -63,7 +63,7 @@ function renderLicenseSection(license) {
 
   return `## License
 
-Licensed under [${license}]${renderLicenseLink(license)} license.`;
+Licensed under [${license}] ${renderLicenseLink(license)}.`;
 }
 
 // TODO: Create a function to generate markdown for README
@@ -72,13 +72,13 @@ function generateMarkdown(data) {
 ${renderLicenseBadge(data.license)}
 
 ## Table of Contents
-- Description
-- Installation
-- Usage
-- License
-- Contributing
-- Tests
-- Questions
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
 
 ## Description
