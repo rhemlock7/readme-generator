@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const markdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -68,7 +69,7 @@ function writeToFile(data) {
 
     const filename = `${data['title'].toLowerCase().split(' ').join('')}.md`;
 
-    fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
+    fs.writeFile(filename, markdown(data), (err) =>
         err ? console.log(err) : console.log('Success!')
     );
 }
