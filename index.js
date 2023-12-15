@@ -6,7 +6,7 @@ const fs = require('fs');
 const questions = [
     {
         type: 'input',
-        name: 'project-name',
+        name: 'title',
         message: 'What is the name of your project?'
     },
     {
@@ -16,8 +16,23 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'motivation',
-        message: 'Why did you build this project? What was your motivation?'
+        name: 'installation',
+        message: 'How should this project be installed?'
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'How should this project be used?'
+    },
+    {
+        type: 'input',
+        name: 'contribution',
+        message: 'How can someone contribute to this project?'
+    },
+    {
+        type: 'input',
+        name: 'testing',
+        message: 'How can someone test your project?'
     },
     {
         type: 'rawlist',
@@ -34,14 +49,24 @@ const questions = [
             "GNU Lesser General Public License v2.1",
             "Mozilla Public License 2.0",
             "The Unlicense",]
-    }
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: 'What is your GitHub username?'
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email?'
+    },
 ];
 
 // TODO: Create a function to write README file
 
-function writeToFile(fileName, data) {
+function writeToFile(data) {
 
-    const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
+    const filename = `${data['title'].toLowerCase().split(' ').join('')}.md`;
 
     fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
         err ? console.log(err) : console.log('Success!')
@@ -50,7 +75,9 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-    writeToFile()
+    inquirer.prompt(questions).then((data) => {
+        writeToFile(data);
+    });
 }
 
 // Function call to initialize app
